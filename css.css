@@ -19,18 +19,6 @@ input{
     outline: none;
     font-size: 15px;
 }
-
-
-button{
-    background-color: #55ACEE;
-    border: none;
-    padding: 15px;
-    width: 100%;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
-    
-}
 button:hover{
     background-color: #fff;
     cursor: pointer;
@@ -104,8 +92,13 @@ legend{
     background-color: #fff;
     cursor: pointer;
     color: black;}
-
-    .btn{
+    
+.box-search{
+        display: flex;
+        justify-content: center;
+        gap: .1%;
+    }
+.btn{
         background-color: #55ACEE;
         border: none;
         padding: 15px;
@@ -113,9 +106,25 @@ legend{
         border-radius: 10px;
         color: white;
         font-size: 20px;
+        
     }
-    .btn:hover{
+.btn:hover{
         background-color: #fff;
         cursor: pointer;
         color: black;
     }
+    .btn2{
+        background-color: #fb0c04;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+    }
+    .btn2:hover{
+        background-color: #fff;
+        cursor: pointer;
+        color: black;
+    }
+ 
