@@ -9,13 +9,46 @@ if (isset($_POST['submit']))
     $nomusu = $_POST['nomusu'];
     $senha = $_POST['senha'];
 
-    $result = mysqli_query($conexao, "INSERT INTO usuarios(nome,nomUsuario,senha) 
-    VALUES ('$nome','$nomusu','$senha')");
-
-    header('location: index.php');
+    if(strlen($nomusu) < 5){
+        echo '<script type ="text/JavaScript">';  
+        echo 'alert("Nome de usuário precisa ter no mínimo 5 caracteres")';  
+        echo '</script>';  
+        $erro = 1;
+    }
+    if(strlen($senha) < 8){
+        echo '<script type ="text/JavaScript">';
+        echo 'alert("A senha deve possuir no mínimo 8 caracteres")';
+        echo '</script>';
+        $erro = 1;
+    }
+    if($nomusu == $senha){
+        echo '<script type ="text/JavaScript">';
+        echo 'alert("O username e a senha devem ser diferentes")';
+        echo '</script>';
+        $erro = 1;
+    }
+    if(empty($nome) OR strstr($nome,' ') == FALSE){
+        echo '<script type ="text/JavaScript">';
+        echo 'alert("Favor digitar seu nome")';
+        echo '</script>';
+        $erro = 1;
+    }
+// VERIFICA SE NÃO HOUVE ERRO 
+    if($erro == 0) { 
+    
+        $mysqli = mysqli_connect("localhost","root","","banco");
+        $sql = "INSERT INTO usuarios (nome,nomUsuario,senha)";
+        $sql .= "VALUES ('$nome','$nomusu','$senha')";
+        mysqli_query($mysqli,$sql);
+        mysqli_close($mysqli);      
+        echo '<script type ="text/JavaScript">';
+        echo 'alert("Usuário cadastrado!!")';
+        echo '</script>';
+        header("location: paginainicial.php"); 
+    }
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +72,7 @@ if (isset($_POST['submit']))
                 </div>
                 <br><br>
                 <div class="inputBox2">
-                    <input type="text" name="nomusu" id="nomeusu" class="inputUser" required>
+                    <input type="text" name="nomusu" id="nomeusu" placeholder="no mínimo 5 caracteres" class="inputUser" required>
                     <label for="email" class="labelInput">Nome de usuário</label>
                 </div>
                 <br><br>
