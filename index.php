@@ -17,10 +17,11 @@
         <input type="text" placeholder="Nome de usuário">
         <br><br>
         <input type="password" placeholder="Senha">
-        <br><br>
-        <a class= "btn" href="paginainicial.php">Login</a>
-        <br><br>
-        <a class= "btn" href="formulário.php">Cadastra-se aqui</a>
+        <br><br><br>
+        <button class="btn" type="submit" name="submit">Login</button>
+        <br><br><br>
+        <a class="btn" href="formulario.php">Cadastra-se aqui</a>
     </div>
+
 </body>
 </html>
